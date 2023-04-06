@@ -61,6 +61,8 @@ for frame in range(0, 10):
 # background
 bg = pygame.transform.scale(pygame.image.load('Background_Images/Background.png'), (win_width, win_height))
 
+#heart life icon
+heart = pygame.transform.scale(pygame.image.load('Background_Images/heart.png'),(25,25))
 # enemy animations
 left_enemy = []
 for frame in range(1, 9):
@@ -337,6 +339,8 @@ class Enemy:
 def draw_game():
     win.fill((0, 0, 0))
     win.blit(bg, (0, 0))
+    for i in range(0,player.health):
+        win.blit(heart,(25*i,5))
     if player.alive is True:
         player.draw(win)
         for enemy in enemies:
@@ -368,7 +372,7 @@ game_over = pygame.image.load(os.path.join("Background_Images/gameover-removebg-
 while run:
     seconds = (pygame.time.get_ticks()-start_ticks)/1000
     if start_time is False:
-        pygame.mixer.music.play(-1, 0.0)
+        #pygame.mixer.music.play(-1, 0.0)
         timestamp = seconds
         start_time = True
     # Quit Game
