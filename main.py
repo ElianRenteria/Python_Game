@@ -372,7 +372,7 @@ game_over = pygame.image.load(os.path.join("Background_Images/gameover-removebg-
 while run:
     seconds = (pygame.time.get_ticks()-start_ticks)/1000
     if start_time is False:
-        #pygame.mixer.music.play(-1, 0.0)
+        pygame.mixer.music.play(-1, 0.0)
         timestamp = seconds
         start_time = True
     # Quit Game
